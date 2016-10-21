@@ -32,7 +32,7 @@ import H2 from 'components/H2';
 import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
-
+import { Button as SemanticButton } from 'semantic-ui-react';
 import styles from './styles.css';
 
 export class HomePage extends React.Component {
@@ -122,7 +122,8 @@ export class HomePage extends React.Component {
             <FormattedMessage {...messages.featuresButton} />
           </Button>
         </div>
-        <button className="ui button">Customised Button</button>
+        <SemanticButton>SemanticButton</SemanticButton>
+
       </article>
     );
   }
