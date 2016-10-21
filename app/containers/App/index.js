@@ -18,6 +18,7 @@ import Banner from './banner-metal.jpg';
 import A from 'components/A';
 
 import styles from './styles.css';
+import '../../semantic/semantic.less'
 
 function App(props) {
   return (

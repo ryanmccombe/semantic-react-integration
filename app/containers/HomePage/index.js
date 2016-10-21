@@ -122,6 +122,7 @@ export class HomePage extends React.Component {
             <FormattedMessage {...messages.featuresButton} />
           </Button>
         </div>
+        <button className="ui button">Customised Button</button>
       </article>
     );
   }

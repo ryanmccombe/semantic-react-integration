@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const cssnext = require('postcss-cssnext');
 const postcssFocus = require('postcss-focus');
 const postcssReporter = require('postcss-reporter');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (options) => ({
   entry: options.entry,
@@ -54,9 +55,13 @@ module.exports = (options) => ({
     }, {
       test: /\.(mp4|webm)$/,
       loader: 'url-loader?limit=10000',
+    }, {
+      test: /\.less$/,
+      loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'postcss-loader?sourceMap', 'less-loader?sourceMap']),
     }],
   },
   plugins: options.plugins.concat([
+    new ExtractTextPlugin('[name].css?[hash]'),
     new webpack.ProvidePlugin({
       // make fetch available
       fetch: 'exports?self.fetch!whatwg-fetch',
