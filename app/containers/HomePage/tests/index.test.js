@@ -88,7 +88,7 @@ describe('<HomePage />', () => {
         <HomePage loading changeRoute={openRoute} />
       </IntlProvider>
     );
-    const button = renderedComponent.find('button');
+    const button = renderedComponent.find('div button');
     button.simulate('click');
     expect(openRouteSpy).toHaveBeenCalled();
   });

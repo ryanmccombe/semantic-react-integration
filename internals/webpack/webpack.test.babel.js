@@ -3,6 +3,8 @@
  */
 
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const modules = [
   'app',
   'node_modules',
@@ -31,13 +33,21 @@ module.exports = {
         loader: 'babel',
         exclude: [/node_modules/],
       },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        loader: 'file-loader',
+      },
       { test: /\.jpe?g$|\.gif$|\.png$|\.svg$/i,
         loader: 'null-loader',
+      }, {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'postcss-loader?sourceMap', 'less-loader?sourceMap']),
       },
     ],
   },
 
   plugins: [
+    new ExtractTextPlugin('[name].css?[hash]'),
 
     // Always expose NODE_ENV to webpack, in order to use `process.env.NODE_ENV`
     // inside your code for any environment checks; UglifyJS will automatically
