@@ -9,6 +9,7 @@ const webpack = require('webpack');
 const cssnext = require('postcss-cssnext');
 const postcssFocus = require('postcss-focus');
 const postcssReporter = require('postcss-reporter');
+const postcssIncreaseSpecificity = require('postcss-increase-specificity');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = (options) => ({
@@ -56,8 +57,11 @@ module.exports = (options) => ({
       test: /\.(mp4|webm)$/,
       loader: 'url-loader?limit=10000',
     }, {
+      // Removed PostCSS loader from this test to prevent semantic-ui from using the postcss plugins
+      // This means we can't effectively use less in component specific CSS
+      // TODO: Refactor this so we can use LESS for component CSS when we need to
       test: /\.less$/,
-      loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'postcss-loader?sourceMap', 'less-loader?sourceMap']),
+      loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'less-loader?sourceMap']),
     }],
   },
   plugins: options.plugins.concat([
@@ -78,6 +82,7 @@ module.exports = (options) => ({
   ]),
   postcss: () => [
     postcssFocus(), // Add a :focus to every :hover
+    postcssIncreaseSpecificity(),
     cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
       browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
     }),
