@@ -57,11 +57,11 @@ module.exports = (options) => ({
       test: /\.(mp4|webm)$/,
       loader: 'url-loader?limit=10000',
     }, {
-      // Removed PostCSS loader from this test to prevent semantic-ui from using the postcss plugins
-      // This means we can't effectively use less in component specific CSS
-      // TODO: Refactor this so we can use LESS for component CSS when we need to
       test: /\.less$/,
       loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'less-loader?sourceMap']),
+    }, {
+      test: /(containers\/|components\/).*\.less$/,
+      loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'postcss-loader?sourceMap', 'less-loader?sourceMap']),
     }],
   },
   plugins: options.plugins.concat([
