@@ -1,11 +1,14 @@
-@blue             : #2185D0;
-@lightBlue        : #54C8FF;
+@fontName          : 'Montserrat';
+@googleFontSizes   : '400,700';
+
+@purple           : #9b59b6;
+@red              : #e74c3c;
+@green            : #5cb85c;
+
+@mainMenuBackground: #2a3f54;
+@mastheadBackground: #34495e;
 
 @black            : #1B1C1D;
 @lightBlack       : #545454;
 
-@primaryColor        : @blue;
-@secondaryColor      : @black;
-
-@lightPrimaryColor   : @lightBlue;
-@lightSecondaryColor : @lightBlack;
+@secondaryColor      : @green;

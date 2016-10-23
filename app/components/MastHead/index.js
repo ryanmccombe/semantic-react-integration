@@ -13,16 +13,13 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import styles from './styles.css';
-import MainMenu from '../../components/MainMenu';
-import MastHead from '../../components/MastHead';
 
 export default class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (
-      <div>
-        <MainMenu />
-        <MastHead />
+      <div className={styles.wrapper}>
+        masthead
       </div>
     );
   }

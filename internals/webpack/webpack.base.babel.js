@@ -57,7 +57,7 @@ module.exports = (options) => ({
       test: /\.(mp4|webm)$/,
       loader: 'url-loader?limit=10000',
     }, {
-      test: /\.less$/,
+      test: /\.(less|variables)$/,
       loader: ExtractTextPlugin.extract(['css-loader?sourceMap', 'less-loader?sourceMap']),
     }, {
       test: /(containers\/|components\/).*\.less$/,

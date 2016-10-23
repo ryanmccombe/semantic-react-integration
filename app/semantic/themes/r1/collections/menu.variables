@@ -1,0 +1,14 @@
+@import '../globals/site.variables';
+
+@topMenuHeight: 60px;
+
+@itemHorizontalPadding: 2.5em;
+
+@borderRadius: 0;
+
+@itemFontWeight: bold;
+@activeItemFontWeight: bold;
+
+@invertedBackground: none;
+@minHeight: @topMenuHeight;
+@invertedActiveBackground: @mastheadBackground;
