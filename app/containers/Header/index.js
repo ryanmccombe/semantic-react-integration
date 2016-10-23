@@ -1,7 +1,7 @@
 /*
- * HomePage
+ * Header
  *
- * This is the first thing users see of our App, at the '/' route
+ * This is the site header
  *
  * NOTE: while this component should technically be a stateless functional
  * component (SFC), hot reloading does not currently support SFCs. If hot
@@ -12,13 +12,14 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
+import styles from './styles.css';
 
-export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+export default class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
     return (
       <h1>
-        <FormattedMessage {...messages.header} />
+        <FormattedMessage {...messages.findAJob} />
       </h1>
     );
   }
