@@ -34,6 +34,22 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/patterns',
+      name: 'patternLibrary',
+      getComponent(nextState, cb) {
+        System.import('containers/PatternLibrary')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/responsive',
+      name: 'responsive',
+      getComponent(nextState, cb) {
+        System.import('containers/PatternLibrary/Responsive')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {
